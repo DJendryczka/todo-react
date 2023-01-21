@@ -9,7 +9,7 @@ const style = {
     button: ` cursor-pointer flex items-center`
 }
 
-const Task = ({todo, toggleComplete}) => {
+const Task = ({todo, toggleComplete, deleteTask}) => {
   return (
     
     <li className={todo.completed ? style.liComlite : style.li}>
@@ -17,7 +17,7 @@ const Task = ({todo, toggleComplete}) => {
             <input onChange={() => toggleComplete(todo)} type='checkbox' checked={todo.completed ? 'checked' : ''} />
             <p onClick={() => toggleComplete(todo)} className={todo.completed ? style.textComplete : style.text}>{todo.text}</p>
         </div>
-        <button>{<FaRegTrashAlt />}</button>
+        <button onClick={() => deleteTask(todo.id)}>{<FaRegTrashAlt />}</button>
     </li>
     
     
