@@ -1,0 +1,27 @@
+import React from 'react'
+import { FaRegTrashAlt } from 'react-icons/fa'
+const style = {
+    li: ` flex justify-between  bg-slate-300 p-4 my-2 capitalize`,
+    liComlite: ` flex justify-between  bg-slate-500 p-4 my-2 capitalize`,
+    row: ` flex`,
+    text: ` ml-2 cursor-pointer`,
+    textComplete: ` ml-2 cursor-pointer line-through`,
+    button: ` cursor-pointer flex items-center`
+}
+
+const Task = ({todo, toggleComplete}) => {
+  return (
+    
+    <li className={todo.completed ? style.liComlite : style.li}>
+        <div className={style.row}>
+            <input onChange={() => toggleComplete(todo)} type='checkbox' checked={todo.completed ? 'checked' : ''} />
+            <p onClick={() => toggleComplete(todo)} className={todo.completed ? style.textComplete : style.text}>{todo.text}</p>
+        </div>
+        <button>{<FaRegTrashAlt />}</button>
+    </li>
+    
+    
+  )
+}
+
+export default Task
